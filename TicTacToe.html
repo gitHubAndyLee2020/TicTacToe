@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .title {
+  	position: absolute;
+    left: 50%;
+    top: 4%;
+    transform: translate(-50%, 0);
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 2px;
+  }
+  
+  .grid-item {
+    font-weight: bold;
+  	background-color: #82c6c9;
+    height: 7.5rem;
+    width: 7.5rem;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+  }
+  
+  .grid-item:hover {
+  	background: #003366;
+  }
+  
+  .score-board {
+  	font-weight: bold;
+  	position: absolute;
+    left: 50%;
+    top: 88%;
+    transform: translate(-50%, 0);
+    font-size: 2rem;
+  }
+  
+  .reset {
+  	background: #003366;
+    border: 0;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0, -50%);
+  }
+  
+  .reset:hover {
+  	background: #82c6c9;
+  }
+</style>
+</head>
+<body>
+<h1 class="title">Tic Tac Toe</h1>
+<div class="grid-container">
+  <div id="one" class="grid-item"></div>
+  <div id="two" class="grid-item"></div>
+  <div id="three" class="grid-item"></div>
+  <div id="four" class="grid-item"></div>
+  <div id="five" class="grid-item"></div>
+  <div id="six" class="grid-item"></div>
+  <div id="seven" class="grid-item"></div>
+  <div id="eight" class="grid-item"></div>
+  <div id="nine" class="grid-item"></div>
+</div>
+<div class="score-board">In Progress...</div>
+<input type="button" class="reset" value="reset" onClick="reset()">
+<script>
+var one = document.querySelector("#one")
+var two = document.querySelector("#two")
+var three = document.querySelector("#three")
+var four = document.querySelector("#four")
+var five = document.querySelector("#five")
+var six = document.querySelector("#six")
+var seven = document.querySelector("#seven")
+var eight = document.querySelector("#eight")
+var nine = document.querySelector("#nine")
+var scoreBoard = document.querySelector(".score-board")
+
+var turn = true
+var oWon = false
+var xWon = false
+
+const reset = () => {
+	one.innerHTML = ""
+    two.innerHTML = ""
+    three.innerHTML = ""
+    four.innerHTML = ""
+    five.innerHTML = ""
+	six.innerHTML = ""
+	seven.innerHTML = ""
+    eight.innerHTML = ""
+    nine.innerHTML = ""
+    scoreBoard.innerHTML = "In Progress..."
+    oWon = false
+    xWon = false
+}
+
+one.addEventListener("click",function(){
+	if (one.innerHTML != "O" && one.innerHTML != "X") {
+      if (turn) {
+          one.innerHTML = "O"
+          turn = false
+      } else {
+          one.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+two.addEventListener("click",function(){
+	if (two.innerHTML != "O" && two.innerHTML != "X") {
+      if (turn) {
+          two.innerHTML = "O"
+          turn = false
+      } else {
+          two.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+three.addEventListener("click",function(){
+	if (three.innerHTML != "O" && three.innerHTML != "X") {
+      if (turn) {
+          three.innerHTML = "O"
+          turn = false
+      } else {
+          three.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+one.addEventListener("click",function(){
+	if (one.innerHTML != "O" && one.innerHTML != "X") {
+      if (turn) {
+          one.innerHTML = "O"
+          turn = false
+      } else {
+          one.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+four.addEventListener("click",function(){
+	if (four.innerHTML != "O" && four.innerHTML != "X") {
+      if (turn) {
+          four.innerHTML = "O"
+          turn = false
+      } else {
+          four.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+five.addEventListener("click",function(){
+	if (five.innerHTML != "O" && five.innerHTML != "X") {
+      if (turn) {
+          five.innerHTML = "O"
+          turn = false
+      } else {
+          five.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+six.addEventListener("click",function(){
+	if (six.innerHTML != "O" && six.innerHTML != "X") {
+      if (turn) {
+          six.innerHTML = "O"
+          turn = false
+      } else {
+          six.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+seven.addEventListener("click",function(){
+	if (seven.innerHTML != "O" && seven.innerHTML != "X") {
+      if (turn) {
+          seven.innerHTML = "O"
+          turn = false
+      } else {
+          seven.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+eight.addEventListener("click",function(){
+	if (eight.innerHTML != "O" && eight.innerHTML != "X") {
+      if (turn) {
+          eight.innerHTML = "O"
+          turn = false
+      } else {
+          eight.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+nine.addEventListener("click",function(){
+	if (nine.innerHTML != "O" && nine.innerHTML != "X") {
+      if (turn) {
+          nine.innerHTML = "O"
+          turn = false
+      } else {
+          nine.innerHTML = "X"
+          turn = true
+      }
+    }
+    checkWin()
+})
+
+function checkWin() {
+  if (!turn) {
+    if (one.innerHTML === "O" && two.innerHTML === "O" && three.innerHTML === "O") {
+      oWon = true
+    } else if (four.innerHTML === "O" && five.innerHTML === "O" && six.innerHTML === "O") {
+      oWon = true
+    } else if (seven.innerHTML === "O" && eight.innerHTML === "O" && nine.innerHTML === "O") {
+      oWon = true
+    } else if (one.innerHTML === "O" && four.innerHTML === "O" && seven.innerHTML === "O") {
+      oWon = true
+    } else if (two.innerHTML === "O" && five.innerHTML === "O" && eight.innerHTML === "O") {
+      oWon = true
+    } else if (three.innerHTML === "O" && six.innerHTML === "O" && nine.innerHTML === "O") {
+      oWon = true
+    } else if (one.innerHTML === "O" && five.innerHTML === "O" && nine.innerHTML === "O") {
+      oWon = true
+    } else if (three.innerHTML === "O" && five.innerHTML === "O" && seven.innerHTML === "O") {
+      oWon = true
+    }
+  } else {
+    if (one.innerHTML === "X" && two.innerHTML === "X" && three.innerHTML === "X") {
+      xWon = true
+    } else if (four.innerHTML === "X" && five.innerHTML === "X" && six.innerHTML === "X") {
+      xWon = true
+    } else if (seven.innerHTML === "X" && eight.innerHTML === "X" && nine.innerHTML === "X") {
+      xWon = true
+    } else if (one.innerHTML === "X" && four.innerHTML === "X" && seven.innerHTML === "X") {
+      xWon = true
+    } else if (two.innerHTML === "X" && five.innerHTML === "X" && eight.innerHTML === "X") {
+      xWon = true
+    } else if (three.innerHTML === "X" && six.innerHTML === "X" && nine.innerHTML === "X") {
+      xWon = true
+    } else if (one.innerHTML === "X" && five.innerHTML === "X" && nine.innerHTML === "X") {
+      xWon = true
+    } else if (three.innerHTML === "X" && five.innerHTML === "X" && seven.innerHTML === "X") {
+      xWon = true
+    }
+  } 
+  
+  if (oWon) {
+	scoreBoard.innerHTML = "O has won!"
+  } else if (xWon) {
+    scoreBoard.innerHTML = "X has won!"  
+  } else if (one.innerHTML !== "" && two.innerHTML !== "" && three.innerHTML !== "" && four.innerHTML !== "" && five.innerHTML !== "" && six.innerHTML !== "" && seven.innerHTML !== "" && eight.innerHTML !== "" && nine.innerHTML !== "") {
+  	scoreBoard.innerHTML = "Tie"
+  }
+}
+
+</script>
+
+</body>
+</html>
